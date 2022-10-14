@@ -296,11 +296,6 @@ Suppose you are looking for citrus recipes 🍋. For example, recipes with ingre
 
   python search.py multi-match title ingredients lemon
 
-
-.. seealso::
-
-  Check out more about `multi match query <https://opensearch.org/docs/latest/opensearch/query-dsl/full-text/#multi-match>`_ on the OpenSearch documentation.
-
 .. _match-phrase-query:
 
 Match with phrases
@@ -379,7 +374,7 @@ So with ``slop`` parameter adjusted, you're may be able to find results even wit
 
 .. seealso::
 
-  Read more about ``slop`` parameter on the `OpenSearch project specifications <https://opensearch.org/docs/latest/opensearch/query-dsl/full-text#options>`_.
+  Read more about ``slop`` parameter on the `OpenSearch project specifications <https://opensearch.org/docs/latest/opensearch/query-dsl/full-text#other-optional-query-fields>`_.
 
 
 Use a ``term`` query
@@ -458,7 +453,7 @@ Try to find recipes in a certain range of sodium, for example:
 
 .. seealso::
 
-  See more about the range query in the `OpenSearch documentation <https://opensearch.org/docs/latest/opensearch/query-dsl/term/#range>`_.
+  See more about the range query in the `OpenSearch documentation <https://opensearch.org/docs/latest/opensearch/query-dsl/term/#range-query>`_.
 
 .. _fuzzy-query:
 

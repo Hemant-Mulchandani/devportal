@@ -22,7 +22,7 @@ Depending on the service plan, each service provides different backups with diff
 +---------------------------------------+------------------------------------------+---------------------------------------------------------+--------------------------------------------------------+--------------------------------------------------------+
 | Aiven for Apache Cassandra®           | Plan not available                       | Single day backup                                       | Single day backup                                      | Single day backup                                      |
 +---------------------------------------+------------------------------------------+---------------------------------------------------------+--------------------------------------------------------+--------------------------------------------------------+
-| Aiven for Redis™*                     | Single backup only for disaster recovery | Backup every 12 hours up to 1 day                       | Backup every 12 hours up to 3 days                     | Backup every 12 hours up to 13 days                    |
+| Aiven for Redis®*                     | Single backup only for disaster recovery | Backup every 12 hours up to 1 day                       | Backup every 12 hours up to 3 days                     | Backup every 12 hours up to 13 days                    |
 +---------------------------------------+------------------------------------------+---------------------------------------------------------+--------------------------------------------------------+--------------------------------------------------------+
 | Aiven for InfluxDB®                   | Plan not available                       | Backup every 12 hours up to 2.5 days                    | Plan not available                                     | Plan not available                                     |
 +---------------------------------------+------------------------------------------+---------------------------------------------------------+--------------------------------------------------------+--------------------------------------------------------+
@@ -44,19 +44,19 @@ Aiven for Apache Kafka®
 ''''''''''''''''''''''''''''''
 We do not take backups and data durability is determined by the replication of data across the cluster, as in general it's more often used as a transport for data rather than a permanent store and the way Kafka stores data does not really allow reasonable backup to be implemented using traditional backup strategies.
 
-To back up data passing through Kafka, we recommend setting up :doc:`MirrorMaker 2<../../products/kafka/kafka-mirrormaker/index>` to replicate the data to another cluster, which could be an Aiven service or a Kafka cluster on your own infrastructure.
+To back up data passing through Kafka, we recommend setting up :doc:`MirrorMaker 2<../../products/kafka/kafka-mirrormaker>` to replicate the data to another cluster, which could be an Aiven service or a Kafka cluster on your own infrastructure.
 
 Using MirrorMaker 2, the backup cluster is running as an independent Kafka service, so you have complete freedom of choice in which zone the service should be based.
 
 Note that MirrorMaker 2 provides tools for mapping between source and target offset, so the user does not need to make this calculation. For more details see the section "Offset Mapping" in the blog post `A look inside Kafka MirrorMaker 2 <https://blog.cloudera.com/a-look-inside-kafka-mirrormaker-2/>`__.
 
-An alternative is to use Kafka Connect to backup the cluster, for instance sinking data from Apache Kafka® to S3 via the `dedicated Aiven connector <https://developer.aiven.io/docs/products/kafka/kafka-connect/howto/s3-sink-prereq.html>`_.
+An alternative is to use Kafka Connect to backup the cluster, for instance sinking data from Apache Kafka® to S3 via the :doc:`dedicated Aiven connector </docs/products/kafka/kafka-connect/howto/s3-sink-prereq>`.
 
 For more information refer to
 
-- `Aiven for Apache Kafka® MirrorMaker 2 <https://developer.aiven.io/docs/products/kafka/kafka-mirrormaker/index.html>`_
+- :doc:`Aiven for Apache Kafka® MirrorMaker 2 </docs/products/kafka/kafka-mirrormaker>`
 - Cloudera's `A look inside Kafka MirrorMaker 2 <https://blog.cloudera.com/a-look-inside-kafka-mirrormaker-2/>`_
-- `Configure AWS for an S3 sink connector <https://developer.aiven.io/docs/products/kafka/kafka-connect/howto/s3-sink-prereq.html>`_
+- :doc:`Configure AWS for an S3 sink connector </docs/products/kafka/kafka-connect/howto/s3-sink-prereq>`
 
 Aiven for PostgreSQL®
 '''''''''''''''''''''
@@ -66,9 +66,9 @@ You may modify the backup time configuration option in **Advanced Configuration*
 
 For more information refer to
 
-- `PostgreSQL® backups <https://developer.aiven.io/docs/products/postgresql/concepts/pg-backups.html>`_
-- `High availability <https://developer.aiven.io/docs/products/postgresql/concepts/high-availability.html>`_
-- `Create and use read-only replicas <https://developer.aiven.io/docs/products/postgresql/howto/create-read-replica.html>`_
+- :doc:`PostgreSQL® backups </docs/products/postgresql/concepts/pg-backups>`
+- :doc:`High availability </docs/products/postgresql/concepts/high-availability>`
+- :doc:`Create and use read-only replicas </docs/products/postgresql/howto/create-read-replica>`
 
 Aiven for MySQL
 '''''''''''''''''''''
@@ -77,7 +77,7 @@ Myhoard uses `Percona XtraBackup <https://www.percona.com/>`_ internally for tak
 
 You may modify the backup time configuration option in **Advanced Configuration** in the Aiven console which will begin shifting the backup schedule to the new time. If there was a recent backup taken, it may take another backup cycle before it starts applying new backup time.
 
-For more information refer to `MySQL Backups <https://help.aiven.io/en/articles/5199859-mysql-backups>`_.
+For more information refer to :doc:`MySQL Backups </docs/products/mysql/concepts/mysql-backups>`.
 
 Aiven for OpenSearch®
 ''''''''''''''''''''''''''''
@@ -85,15 +85,15 @@ These databases are automatically backed up, encrypted, and stored securely in o
 
 For more information refer to
 
-- `OpenSearch backups <https://developer.aiven.io/docs/products/opensearch/concepts/backups.html>`_
-- `How to restore an OpenSearch® backup <https://developer.aiven.io/docs/products/opensearch/howto/restore_opensearch_backup.html>`_
+- :doc:`OpenSearch backups </docs/products/opensearch/concepts/backups>`
+- :doc:`How to restore an OpenSearch® backup </docs/products/opensearch/howto/restore_opensearch_backup>`
 
 Aiven for Apache Cassandra®
 '''''''''''''''''''''''''''
 We currently support backups taken every 24 hours. The PITR feature is currently not available. Please contact support if you would to be notified once the PITR feature is available for Cassandra.
 
 
-Aiven for Redis™*
+Aiven for Redis®*
 ''''''''''''''''''''''''
 We offer backups that are taken every 12 hours, and for persistence we support **RBD** (Redis Database Backup). The persistence feature can be controlled by ``redis_persistence`` under **Advanced Configuration**. AOF persistence is currently not supported by the Aiven for Redis service.
 

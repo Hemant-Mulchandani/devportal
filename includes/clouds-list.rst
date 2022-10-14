@@ -1,4 +1,5 @@
 
+
 Amazon Web Services
 -----------------------------------------------------
 .. list-table::
@@ -22,6 +23,9 @@ Amazon Web Services
   * - East Asia
     - ``aws-ap-northeast-2``
     - Asia, Korea 
+  * - East Asia
+    - ``aws-ap-northeast-3``
+    - Asia, Japan 
   * - Europe
     - ``aws-eu-central-1``
     - Europe, Germany 
@@ -40,6 +44,9 @@ Amazon Web Services
   * - Europe
     - ``aws-eu-west-3``
     - Europe, France 
+  * - Middle East
+    - ``aws-me-south-1``
+    - Middle East, Bahrain 
   * - North America
     - ``aws-ca-central-1``
     - Canada, Quebec 
@@ -61,9 +68,6 @@ Amazon Web Services
   * - South Asia
     - ``aws-ap-south-1``
     - Asia, India 
-  * - South Asia
-    - ``aws-me-south-1``
-    - Asia, Bahrain 
   * - Southeast Asia
     - ``aws-ap-southeast-1``
     - Asia, Singapore 
@@ -254,6 +258,9 @@ Google Cloud
     - ``google-europe-north1``
     - Europe, Finland 
   * - Europe
+    - ``google-europe-southwest1``
+    - Europe, Madrid 
+  * - Europe
     - ``google-europe-west1``
     - Europe, Belgium 
   * - Europe
@@ -268,6 +275,12 @@ Google Cloud
   * - Europe
     - ``google-europe-west6``
     - Europe, Switzerland 
+  * - Europe
+    - ``google-europe-west8``
+    - Europe, Italy 
+  * - Europe
+    - ``google-europe-west9``
+    - Europe, France 
   * - North America
     - ``google-northamerica-northeast1``
     - Canada, Quebec 
@@ -283,6 +296,12 @@ Google Cloud
   * - North America
     - ``google-us-east4``
     - United States, Virginia 
+  * - North America
+    - ``google-us-east5``
+    - United States, Ohio 
+  * - North America
+    - ``google-us-south1``
+    - United States, Texas 
   * - North America
     - ``google-us-west1``
     - United States, Oregon 

@@ -7,6 +7,10 @@ The JDBC source connector pushes data from a relational database, such as Postgr
 
     Sourcing data from a database into Apache Kafka decouples the database from the set of consumers. Once the data is in Apache Kafka, multiple applications can access it without adding any additional query overhead to the source database.
 
+.. note::
+
+    You can check the full set of available parameters and configuration options in the `connector's documentation <https://github.com/aiven/aiven-kafka-connect-jdbc/blob/master/docs/source-connector.md>`_.
+
 .. _connect_jdbc_pg_source_prereq:
 
 Prerequisites
@@ -63,6 +67,11 @@ The configuration file contains the following entries:
 * ``poll.interval.ms``: query frequency, default 5000 milliseconds
 
 Check out the `dedicated documentation <https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/source-connector-config-options.rst>`_ for the full list of parameters.
+
+.. Tip::
+
+    Check the `dedicated blog post <https://aiven.io/blog/using-kafka-connect-jdbc-source-a-postgresql-example>`_ for an end-to-end example of the JDBC source connector in action with PostgreSQL®.
+
 
 Create a Kafka Connect connector with Aiven CLI
 '''''''''''''''''''''''''''''''''''''''''''''''

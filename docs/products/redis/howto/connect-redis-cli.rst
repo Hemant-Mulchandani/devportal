@@ -1,7 +1,7 @@
 Connect with ``redis-cli``
 --------------------------
 
-This example connects to a Redis™* service from ``redis-cli``.
+This example connects to a Redis®* service from ``redis-cli``.
 
 Variables
 '''''''''
@@ -25,7 +25,7 @@ For this example you will need:
 Code
 ''''
 
-Execute the following to from a terminal window:
+Execute the following from a terminal window:
 
 ::
 

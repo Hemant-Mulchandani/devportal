@@ -17,10 +17,7 @@ Configure the integration
 
 Start by configuring the link between Aiven and Datadog for logs. This setup only needs to be done once.
 
-1. Choose **Service integrations** in the left hand menu of the web console, then choose **Syslog** and **Add a new endpoint**.
-
-.. image:: /images/integrations/configure-rsyslog-integration-datadog.png
-   :alt: Screenshot of configuration screen for rsyslog
+1. Click **Integration endpoints** in the web console, then **Syslog** and **Add a new endpoint**.
 
 2. Configure the settings for the new endpoint:
 
@@ -72,5 +69,5 @@ Follow the steps in this section for each of the services whose logs should be s
 
 6. Visit Datadog and look under "Logs" to see the data flowing within a few minutes.
 
-.. seealso:: Learn more about :doc:`/docs/integrations/datadog/index`.
+.. seealso:: Learn more about :doc:`/docs/integrations/datadog`.
 

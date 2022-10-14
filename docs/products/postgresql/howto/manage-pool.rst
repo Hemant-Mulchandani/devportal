@@ -24,12 +24,21 @@ To manage the connection pools, follow the steps below:
 
    The settings available are:
 
-   * **Pool name:** Enter a name for your connection pool here. This also becomes the ``database`` or ``dbname`` connection parameter for your pooled client connections.
+   * **Pool name:** Enter a name for your connection pool here. This also becomes the ``database`` or ``dbname`` connection parameter for your pooled client connections. This parameter must be equal to the ``Database`` parameter. 
    * **Database**: Choose the database that you want to connect to. Each pool can only connect to a single database.
    * **Username:** Select the database username that you want to use when connecting to the backend database.
    * **Pool Mode:** Select the pooling mode as described in more detail above.
-   * **Pool Size:** Select how many PostgreSQL server connections this pool can use at a time.
+   * **Pool Size:** Select how many PostgreSQL server connections this pool can use at a time. 
+   
+   .. important:: 
+    Pool Size parameter is NOT the maximum number of client connections of this pool.
+    
+    Each pool can handle from a minimum of 5000 client connections to a maximum defined by the lower threshold between:
+    
+    * 500 for each GB of RAM in the service plan
+    * A total of 50000 client connections
 
+ 
 
 3. Click **Info** on an existing pool.
 

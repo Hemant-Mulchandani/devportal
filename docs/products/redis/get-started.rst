@@ -1,9 +1,9 @@
-Get started with Aiven for Redis™*
+Get started with Aiven for Redis®*
 ==================================
 
-The first step in using Aiven for Redis™* is to create a service. You can do so either using the `Aiven Web Console <https://console.aiven.io/>`_ or the `Aiven CLI <https://github.com/aiven/aiven-client>`_.
+The first step in using Aiven for Redis®* is to create a service. You can do so either using the `Aiven Web Console <https://console.aiven.io/>`_ or the `Aiven CLI <https://github.com/aiven/aiven-client>`_.
 
-Create a Redis™* service using the Aiven web console
+Create a Redis®* service using the Aiven web console
 ----------------------------------------------------
 1. Log in to the `Aiven web console <https://console.aiven.io/>`_.
 
@@ -11,12 +11,12 @@ Create a Redis™* service using the Aiven web console
 
    Once the service is ready, the status changes to *Running*. This typically takes a couple of minutes, depending on your selected cloud provider and region.
 
-Create a Redis™* service using the Aiven CLI
+Create a Redis®* service using the Aiven CLI
 --------------------------------------------
 
 If you prefer launching a new service from the CLI, `Aiven CLI <https://github.com/aiven/aiven-client>`_ includes a command for doing so. 
 
-In order to launch a service, decide on the service plan, cloud provider, and region you want to run your service on. Then run the following command to create a **Redis™\*** service named ``demo-redis``: 
+In order to launch a service, decide on the service plan, cloud provider, and region you want to run your service on. Then run the following command to create a **Redis®\*** service named ``demo-redis``: 
 
 ::
 
@@ -32,7 +32,8 @@ In order to launch a service, decide on the service plan, cloud provider, and re
 Next steps
 ----------
 
-* Learn how to connect to Aiven for Redis by using different programming languages:
+* Learn how to connect to Aiven for Redis by either using ``redis-cli`` or different programming languages:
+   - :doc:`redis-cli<howto/connect-redis-cli>`
    - :doc:`Go <howto/connect-go>`
    - :doc:`Node <howto/connect-node>`
    - :doc:`PHP <howto/connect-php>`
@@ -59,3 +60,7 @@ Check out more technical information:
 * :doc:`Lua scripts with Aiven for Redis <concepts/lua-scripts-redis>`.
 
   Learn about inbuilt support for running Lua scripts in Aiven for Redis service.
+
+* :doc:`Benchmark performance <howto/benchmark-performance>`
+
+  Learn how to benchmark the performance of Aiven for Redis service.

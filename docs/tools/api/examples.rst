@@ -1,17 +1,16 @@
 API examples
 ============
 
-Here are a few examples (using curl) to get you started with the Aiven API. Replace all the ``<variables>`` with your own values.
+Here is an example to get you started with the Aiven API using curl. Replace ``{TOKEN}`` with your own value of the authentication token.
 
 List of cloud regions
 ---------------------
 
-::
+.. code::
 
-  curl -H "Authorization: Bearer <token>" \
-    https://api.aiven.io/v1/clouds
+  curl -H "Authorization: Bearer {TOKEN}" https://api.aiven.io/v1/clouds
 
-The response looks something like this
+The following is a sample response: 
 
 .. code:: json
 
@@ -32,6 +31,6 @@ The response looks something like this
         "geo_region": "africa"
       },
 
-For most endpoints where a cloud is used as an input, the `cloud_name` from this result is the field to use.
+For most endpoints where a cloud is used as an input, the `cloud_name` from this result is the field to use. For more information on the available endpoints, see the `Aiven API documentation <https://api.aiven.io/doc/>`_.
 
 

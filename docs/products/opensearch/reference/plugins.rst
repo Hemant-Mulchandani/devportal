@@ -3,12 +3,6 @@ Plugins available with Aiven for OpenSearch®
 
 Aiven for OpenSearch® includes a standard set of plugins. In addition to the plugins that were previously available in Aiven for Elasticsearch, Aiven for OpenSearch also includes plugins that are designed and developed specifically for OpenSearch.
 
-.. tip::
-
-    If you 
-    are upgrading from Aiven for Elasticsearch, all the existing `supported 
-    plugins <https://help.aiven.io/en/articles/511872-elasticsearch-plugins>`__
-    are included. 
 
 Included plugins
 ----------------
@@ -31,6 +25,7 @@ These plugins are enabled on all Aiven for OpenSearch services by default:
 * `Scheduler for Dashboards Reports <https://github.com/opensearch-project/dashboards-reports>`__
 * `OpenSearch Dashboards Gantt Charts <https://opensearch.org/docs/latest/dashboards/gantt/>`__
 * `OpenSearch Dashboards Trace Analytics <https://opensearch.org/docs/latest/monitoring-plugins/trace/index/>`__
+* `ML Commons plugin <https://opensearch.org/docs/latest/ml-commons-plugin/index/>`_
 
 
 ------

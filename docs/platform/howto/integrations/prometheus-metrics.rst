@@ -18,8 +18,7 @@ Enable Prometheus support on your Aiven project
 Aiven offers Prometheus endpoints for your services. To enable this feature,
 follow the steps below:
 
-#. | Navigate to the project ``Service Integrations`` section from the
-     side menu
+#. | Navigate to the project **Integration endpoints** page.
 
 #. | Add a ``Prometheus`` integration endpoint if one does not already
      exist.
@@ -133,6 +132,8 @@ below snippet for an example configuration.
          insecure_skip_verify: true
 
 
+.. note:: For PostgreSQL® services with multiple nodes, the primary DNS name does not include standby IP addresses. To track those, make sure to include the replica DNS names in the list.  If you have <PROMETHEUS_SERVICE_URI> as ``example.aivencloud.com``, then you will need to add ``replica-example.aivencloud.com``.
+
 
 View full list of metrics
 ''''''''''''''''''''''''''
@@ -151,4 +152,4 @@ Here are some links to learn more about integrations with Aiven:
 
 * `Aiven M3DB & Grafana® integration <https://help.aiven.io/services/integrations/getting-started-with-service-integrations>`_
 
-* `Datadog integration <https://help.aiven.io/services/integrations/getting-started-with-datadog>`_
+* :doc:`Datadog integration </docs/integrations/datadog>`

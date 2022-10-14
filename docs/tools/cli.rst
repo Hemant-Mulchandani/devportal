@@ -1,9 +1,9 @@
 Aiven CLI
 =========
 
-Aiven offers an installable CLI (command line interface) tool. You can find it `on GitHub <https://github.com/aiven/aiven-client>`_.
+Aiven offers an installable CLI (command line interface) tool. You can find it `on GitHub <https://github.com/aiven/aiven-client>`_. Check out `this blog <https://aiven.io/blog/aiven-cmdline>`_ to learn how to use the Aiven command line tool to do common tasks.
 
-If you prefer to follow a video tutorial, check out this short video on `how to get started <https://www.youtube.com/watch?v=nf3PPn5w6K8>`_.
+If you prefer to follow a video tutorial, check out this short video on `how to get started <https://www.youtube.com/watch?v=nf3PPn5w6K8>`_. 
 
 Getting started
 ---------------
@@ -46,7 +46,7 @@ Top-level commands for the Aiven CLI are listed here, along with some informatio
 
 Handle the accounts you have access to, and also configure the teams for the accounts.
 
-Find more info on the help article about `Accounts, Teams, Members and Roles <https://help.aiven.io/en/articles/4206498-accounts-teams-members-and-roles>`_
+Find more info on the help article about :doc:`Accounts, Teams, Members and Roles </docs/platform/concepts/projects_accounts_access>`
 
 :doc:`See detailed command information <cli/account>`.
 
@@ -136,6 +136,8 @@ Log in/out and manage your user tokens here. You can also create other users.
 '''''''
 
 Manage your VPC configuration including user/peer networks.
+
+:doc:`See detailed command information <cli/vpc>`
 
 General usage
 -------------

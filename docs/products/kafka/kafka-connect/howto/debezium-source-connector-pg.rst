@@ -9,6 +9,10 @@ The Debezium source connector extracts the changes committed to the transaction 
     
     So if your system is completely idle (in which case Aiven for PostgreSQL still generates 16 MiB of WAL every 5 minutes) or changes only occur in databases Debezium is not connected to, PostgreSQL will not be able to clean up WAL and the service will eventually run out of disk space. Thus it is essential to ensure any database you connect to with Debezium is updated frequently enough.
 
+.. note::
+
+    You can check the full set of available parameters and configuration options in the `connector's documentation <https://debezium.io/documentation/reference/stable/connectors/postgresql.html>`_.
+
 .. _connect_debezium_pg_source_prereq:
 
 Prerequisites
@@ -94,6 +98,10 @@ The configuration file contains the following entries:
     The ``key.converter`` and ``value.converter`` sections are only needed when pushing data in Avro format. If omitted the messages will be defined in JSON format.
 
 
+.. Tip::
+
+    Check the `dedicated blog post <https://aiven.io/blog/db-technology-migration-with-apache-kafka-and-kafka-connect>`_ for an end-to-end example of the Debezium source connector in action with PostgreSQL.
+
 Create a Kafka Connect connector with Aiven CLI
 '''''''''''''''''''''''''''''''''''''''''''''''
 
@@ -114,6 +122,8 @@ Verify the presence of the topic and data in the Apache Kafka target instance.
 .. Tip::
 
     If you're using Aiven for Apache Kafka, topics will not be created automatically. Either create them manually following the ``database.server.name.schema_name.table_name`` naming pattern or enable the ``kafka.auto_create_topics_enable`` advanced parameter.
+
+
 
 Solve the error ``must be superuser to create FOR ALL TABLES publication``
 --------------------------------------------------------------------------

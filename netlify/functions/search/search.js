@@ -27,12 +27,29 @@ const handler = async (event) => {
     const response = await client.search({
       index: "devportal",
       body: {
-        sort: [{ sort_priority: "asc" }, "_score"],
+        sort: ["_score"],
         size: pageSize,
         from: (currentPage - 1) * pageSize,
         query: {
           bool: {
+            minimum_should_match: 2,
             should: [
+              {
+                match: {
+                  source: {
+                    query: "helpcenter",
+                    boost: 1
+                  }
+                }
+              },
+              {
+                match: {
+                  source: {
+                    query: "devportal",
+                    boost: 2
+                  }
+                }
+              },
               {
                 match_phrase_prefix: {
                   title: {
