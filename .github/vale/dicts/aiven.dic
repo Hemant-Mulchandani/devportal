@@ -8,6 +8,7 @@ Amazon
 Apache
 API
 APIs
+ARN
 Auth0
 autovacuum
 Avro
@@ -126,6 +127,8 @@ Pagerduty
 Pagila
 Papertrail
 parallelization
+peering
+peerings
 Percona
 performant
 pgAdmin

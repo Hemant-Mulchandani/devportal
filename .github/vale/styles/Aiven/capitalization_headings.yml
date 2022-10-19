@@ -22,6 +22,7 @@ exceptions:
   - ClickHouse
   - CloudWatch
   - Connect
+  - Connector
   - Cookbook
   - Dashboards
   - Datadog
@@ -77,6 +78,7 @@ exceptions:
   - PostgreSQL
   - Postman
   - Premium
+  - Private Link
   - Project
   - Prometheus
   - Provectus
