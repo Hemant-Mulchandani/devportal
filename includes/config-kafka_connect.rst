@@ -1,17 +1,17 @@
 
-``additional_backup_regions``
------------------------------
-*array*
-
-**Additional Cloud Regions for Backup Replication** 
-
-
-
 ``ip_filter``
 -------------
 *array*
 
 **IP filter** Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'
+
+
+
+``service_log``
+---------------
+*['boolean', 'null']*
+
+**Service logging** Store logs for the service so that they are available in the HTTP API and console.
 
 
 
@@ -83,17 +83,41 @@
 
 **Offset flush timeout** Maximum number of milliseconds to wait for records to flush and partition offset data to be committed to offset storage before cancelling the process and restoring the offset data to be committed in a future attempt (defaults to 5000).
 
+``producer_batch_size``
+~~~~~~~~~~~~~~~~~~~~~~~
+*integer*
+
+**The batch size in bytes the producer will attempt to collect for the same partition before publishing to broker** This setting gives the upper bound of the batch size to be sent. If there are fewer than this many bytes accumulated for this partition, the producer will 'linger' for the linger.ms time waiting for more records to show up. A batch size of zero will disable batching entirely (defaults to 16384).
+
+``producer_buffer_memory``
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+*integer*
+
+**The total bytes of memory the producer can use to buffer records waiting to be sent to the broker** The total bytes of memory the producer can use to buffer records waiting to be sent to the broker (defaults to 33554432).
+
 ``producer_compression_type``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *string*
 
 **The default compression type for producers** Specify the default compression type for producers. This configuration accepts the standard compression codecs ('gzip', 'snappy', 'lz4', 'zstd'). It additionally accepts 'none' which is the default and equivalent to no compression.
 
+``producer_linger_ms``
+~~~~~~~~~~~~~~~~~~~~~~
+*integer*
+
+**Wait for up to the given delay to allow batching records together** This setting gives the upper bound on the delay for batching: once there is batch.size worth of records for a partition it will be sent immediately regardless of this setting, however if there are fewer than this many bytes accumulated for this partition the producer will 'linger' for the specified time waiting for more records to show up. Defaults to 0.
+
 ``producer_max_request_size``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *integer*
 
 **The maximum size of a request in bytes** This setting will limit the number of record batches the producer will send in a single request to avoid sending huge requests.
+
+``scheduled_rebalance_max_delay_ms``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*integer*
+
+**The maximum delay of rebalancing connector workers** The maximum delay that is scheduled in order to wait for the return of one or more departed workers before rebalancing and reassigning their connectors and tasks to the group. During this period the connectors and tasks of the departed workers remain unassigned. Defaults to 5 minutes.
 
 ``session_timeout_ms``
 ~~~~~~~~~~~~~~~~~~~~~~
