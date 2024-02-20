@@ -1,12 +1,4 @@
 
-``additional_backup_regions``
------------------------------
-*array*
-
-**Additional Cloud Regions for Backup Replication** 
-
-
-
 ``custom_domain``
 -----------------
 *['string', 'null']*
@@ -20,6 +12,14 @@
 *array*
 
 **IP filter** Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'
+
+
+
+``service_log``
+---------------
+*['boolean', 'null']*
+
+**Service logging** Store logs for the service so that they are available in the HTTP API and console.
 
 
 
@@ -37,11 +37,35 @@
 
 **Allow access to selected service ports from private networks** 
 
+``kafka``
+~~~~~~~~~
+*boolean*
+
+**Allow clients to connect to kafka with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations** 
+
+``kafka_connect``
+~~~~~~~~~~~~~~~~~
+*boolean*
+
+**Allow clients to connect to kafka_connect with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations** 
+
+``kafka_rest``
+~~~~~~~~~~~~~~
+*boolean*
+
+**Allow clients to connect to kafka_rest with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations** 
+
 ``prometheus``
 ~~~~~~~~~~~~~~
 *boolean*
 
 **Allow clients to connect to prometheus with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations** 
+
+``schema_registry``
+~~~~~~~~~~~~~~~~~~~
+*boolean*
+
+**Allow clients to connect to schema_registry with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations** 
 
 
 
@@ -235,6 +259,18 @@
 
 **log.index.size.max.bytes** The maximum size in bytes of the offset index
 
+``log_local_retention_ms``
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+*integer*
+
+**log.local.retention.ms** The number of milliseconds to keep the local log segments before it gets eligible for deletion. If set to -2, the value of log.retention.ms is used. The effective value should always be less than or equal to log.retention.ms value.
+
+``log_local_retention_bytes``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*integer*
+
+**log.local.retention.bytes** The maximum size of local log segments that can grow for a partition before it gets eligible for deletion. If set to -2, the value of log.retention.bytes is used. The effective value should always be less than or equal to log.retention.bytes value.
+
 ``log_message_downconversion_enable``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *boolean*
@@ -349,6 +385,30 @@
 
 **producer.purgatory.purge.interval.requests** The purge interval (in number of requests) of the producer request purgatory(defaults to 1000).
 
+``sasl_oauthbearer_expected_audience``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*string*
+
+**sasl.oauthbearer.expected.audience** The (optional) comma-delimited setting for the broker to use to verify that the JWT was issued for one of the expected audiences.
+
+``sasl_oauthbearer_expected_issuer``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*string*
+
+**sasl.oauthbearer.expected.issuer** Optional setting for the broker to use to verify that the JWT was created by the expected issuer.
+
+``sasl_oauthbearer_jwks_endpoint_url``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*string*
+
+**sasl.oauthbearer.jwks.endpoint.url** OIDC JWKS endpoint URL. By setting this the SASL SSL OAuth2/OIDC authentication is enabled. See also other options for SASL OAuth2/OIDC. 
+
+``sasl_oauthbearer_sub_claim_name``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*string*
+
+**sasl.oauthbearer.sub.claim.name** Name of the scope from which to extract the subject claim from the JWT. Defaults to sub.
+
 ``socket_request_max_bytes``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *integer*
@@ -366,6 +426,12 @@
 *integer*
 
 **transaction.remove.expired.transaction.cleanup.interval.ms** The interval at which to remove transactions that have expired due to transactional.id.expiration.ms passing (defaults to 3600000 (1 hour)).
+
+``transaction_partition_verification_enable``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*boolean*
+
+**transaction.partition.verification.enable** Enable verification that checks that the partition has been added to the transaction before writing transactional records to the partition
 
 
 
@@ -457,17 +523,41 @@
 
 **Offset flush timeout** Maximum number of milliseconds to wait for records to flush and partition offset data to be committed to offset storage before cancelling the process and restoring the offset data to be committed in a future attempt (defaults to 5000).
 
+``producer_batch_size``
+~~~~~~~~~~~~~~~~~~~~~~~
+*integer*
+
+**The batch size in bytes the producer will attempt to collect for the same partition before publishing to broker** This setting gives the upper bound of the batch size to be sent. If there are fewer than this many bytes accumulated for this partition, the producer will 'linger' for the linger.ms time waiting for more records to show up. A batch size of zero will disable batching entirely (defaults to 16384).
+
+``producer_buffer_memory``
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+*integer*
+
+**The total bytes of memory the producer can use to buffer records waiting to be sent to the broker** The total bytes of memory the producer can use to buffer records waiting to be sent to the broker (defaults to 33554432).
+
 ``producer_compression_type``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *string*
 
 **The default compression type for producers** Specify the default compression type for producers. This configuration accepts the standard compression codecs ('gzip', 'snappy', 'lz4', 'zstd'). It additionally accepts 'none' which is the default and equivalent to no compression.
 
+``producer_linger_ms``
+~~~~~~~~~~~~~~~~~~~~~~
+*integer*
+
+**Wait for up to the given delay to allow batching records together** This setting gives the upper bound on the delay for batching: once there is batch.size worth of records for a partition it will be sent immediately regardless of this setting, however if there are fewer than this many bytes accumulated for this partition the producer will 'linger' for the specified time waiting for more records to show up. Defaults to 0.
+
 ``producer_max_request_size``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *integer*
 
 **The maximum size of a request in bytes** This setting will limit the number of record batches the producer will send in a single request to avoid sending huge requests.
+
+``scheduled_rebalance_max_delay_ms``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*integer*
+
+**The maximum delay of rebalancing connector workers** The maximum delay that is scheduled in order to wait for the return of one or more departed workers before rebalancing and reassigning their connectors and tasks to the group. During this period the connectors and tasks of the departed workers remain unassigned. Defaults to 5 minutes.
 
 ``session_timeout_ms``
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -501,6 +591,14 @@
 
 
 
+``kafka_rest_authorization``
+----------------------------
+*boolean*
+
+**Enable authorization in Kafka-REST service** 
+
+
+
 ``kafka_rest_config``
 ---------------------
 *object*
@@ -513,11 +611,23 @@
 
 **producer.acks** The number of acknowledgments the producer requires the leader to have received before considering a request complete. If set to 'all' or '-1', the leader will wait for the full set of in-sync replicas to acknowledge the record.
 
+``producer_compression_type``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*string*
+
+**producer.compression.type** Specify the default compression type for producers. This configuration accepts the standard compression codecs ('gzip', 'snappy', 'lz4', 'zstd'). It additionally accepts 'none' which is the default and equivalent to no compression.
+
 ``producer_linger_ms``
 ~~~~~~~~~~~~~~~~~~~~~~
 *integer*
 
 **producer.linger.ms** Wait for up to the given delay to allow batching records together
+
+``producer_max_request_size``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*integer*
+
+**producer.max.request.size** The maximum size of a request in bytes. Note that Kafka broker can also cap the record batch size.
 
 ``consumer_enable_auto_commit``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -537,11 +647,37 @@
 
 **consumer.request.timeout.ms** The maximum total time to wait for messages for a request if the maximum number of messages has not yet been reached
 
+``name_strategy``
+~~~~~~~~~~~~~~~~~
+*string*
+
+**name.strategy** Name strategy to use when selecting subject for storing schemas
+
+``name_strategy_validation``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*boolean*
+
+**name.strategy.validation** If true, validate that given schema is registered under expected subject name by the used name strategy when producing messages.
+
 ``simpleconsumer_pool_size_max``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *integer*
 
 **simpleconsumer.pool.size.max** Maximum number of SimpleConsumers that can be instantiated per broker
+
+
+
+``tiered_storage``
+------------------
+*object*
+
+**Tiered storage configuration** 
+
+``enabled``
+~~~~~~~~~~~
+*boolean*
+
+**Enabled** Whether to enable the tiered storage functionality
 
 
 
@@ -562,6 +698,14 @@
 *boolean*
 
 **leader_eligibility** If true, Karapace / Schema Registry on the service nodes can participate in leader election. It might be needed to disable this when the schemas topic is replicated to a secondary cluster and Karapace / Schema Registry there must not participate in leader election. Defaults to `true`.
+
+
+
+``aiven_kafka_topic_messages``
+------------------------------
+*boolean*
+
+**Allow access to read Kafka topic messages in the Aiven Console and REST API.** 
 
 
 
